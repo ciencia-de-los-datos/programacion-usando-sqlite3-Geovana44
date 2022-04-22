@@ -53,7 +53,8 @@ cur.executemany(" INSERT INTO tbl1 VALUES (?,?,?,?,?,?,?)",
 
 #print(cur.execute("SELECT * FROM tbl1 ORDER BY c14 LIMIT 5;").fetchall())
 
-#print(cur.execute("SELECT K0, c16 FROM tbl1 WHERE SUBSTRING(c16, 1,1) =K0;").fetchall())
+print(cur.execute("SELECT K0, c16 FROM tbl1 WHERE SUBSTRING(c16, 1,1) =K0;").fetchall())
+
 conn.executescript(
     """
 CREATE TABLE tbl0 (
@@ -231,4 +232,4 @@ cur.executemany(" INSERT INTO tbl2 VALUES (?,?,?,?,?,?)",
 #sprint(cur.execute("SELECT SUBSTRING(c14, 1,4),COUNT(c14) FROM tbl1 WHERE SUBSTRING(c14, 1,4)='2018'").fetchall())
 
 
-print(cur.execute("SELECT extract(YEAR FROM c23)  FROM tbl2;").fetchall()) 
+#print(cur.execute("SELECT extract(YEAR FROM c23)  FROM tbl2;").fetchall())  888
