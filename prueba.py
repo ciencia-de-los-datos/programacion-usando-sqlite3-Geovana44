@@ -53,7 +53,7 @@ cur.executemany(" INSERT INTO tbl1 VALUES (?,?,?,?,?,?,?)",
 
 #print(cur.execute("SELECT * FROM tbl1 ORDER BY c14 LIMIT 5;").fetchall())
 
-print(cur.execute("SELECT K0, c16 FROM tbl1 WHERE SUBSTRING(c16, 1,1) =K0;").fetchall())
+#p<rint(cur.execute("SELECT K0, c16 FROM tbl1 WHERE SUBSTRING(c16, 1,1) =K0;").fetchall())
 
 conn.executescript(
     """
@@ -233,3 +233,23 @@ cur.executemany(" INSERT INTO tbl2 VALUES (?,?,?,?,?,?)",
 
 
 #print(cur.execute("SELECT extract(YEAR FROM c23)  FROM tbl2;").fetchall())  888
+
+
+
+#print(cur.execute("SELECT DISTINCT(strftime('%Y', c23)), AVG(c21) FROM tbl2 GROUP BY strftime('%Y', c23)").fetchall())
+
+#print(cur.execute("SELECT AVG(c21) FROM tbl2 GROUP BY strftime('%Y', c23)").fetchall())
+
+
+#print(cur.execute("SELECT strftime('%Y', c14),COUNT(strftime('%Y', c14)) FROM tbl1 GROUP BY SUBSTRING(c14, 1,4)='2018' ;").fetchall())
+
+
+#print(cur.execute("SELECT '2018',COUNT(*) FROM tbl1 WHERE strftime('%Y', c14)='2018';").fetchall())
+
+#print(cur.execute("SELECT  K0,MAX(c12), MIN(c12) FROM tbl1 GROUP BY  K0").fetchall())
+
+
+#print(cur.execute("SELECT  K0, AVG(c12) FROM tbl1 WHERE c13>400 GROUP BY  K0").fetchall())
+
+
+print(cur.execute("SELECT  K0, avg(c21) FROM tbl1 JOIN tbl2 ON tbl1.k1 = tbl2.k1  WHERE c13>400 GROUP BY  K0").fetchall())
